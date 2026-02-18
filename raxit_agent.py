@@ -6,24 +6,18 @@ import yfinance as yf
 import pandas as pd
 import requests
 import datetime
+import os
 import traceback
 
-# =========================
-# 🔐 ENTER YOUR DETAILS
-# =========================
-
-BOT_TOKEN = 8569764370:AAFG-744c3JyQauL2yzN2d8RrjT1PhOjK-A")
-CHAT_ID = os.environ.get("480878572")
-
-# =========================
-# 📩 TELEGRAM FUNCTION
-# =========================
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+CHAT_ID = os.environ.get("CHAT_ID")
 
 def send_telegram(message):
     try:
-        url = f"https://api.telegram.org/bot{8569764370:AAFG-744c3JyQauL2yzN2d8RrjT1PhOjK-A}/sendMessage"
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+
         payload = {
-            "chat_id": 480878572,
+            "chat_id": CHAT_ID,
             "text": message
         }
         requests.post(url, data=payload)
