@@ -87,19 +87,19 @@ def main():
 
         df = pd.DataFrame(results)
 
-# Remove invalid rows
-df = df.dropna(subset=["score"])
+        # Remove invalid rows
+        df = df.dropna(subset=["score"])
 
-# Ensure score is numeric
-df["score"] = pd.to_numeric(df["score"], errors="coerce")
+        # Ensure score is numeric
+        df["score"] = pd.to_numeric(df["score"], errors="coerce")
 
-df = df.dropna(subset=["score"])
+        df = df.dropna(subset=["score"])
 
-if df.empty:
-    send_telegram("⚠️ Raxit AI: No valid stocks processed today.")
-    return
+        if df.empty:
+            send_telegram("⚠️ Raxit AI: No valid stocks processed today.")
+            return
 
-df = df.sort_values(by="score", ascending=False).head(10)
+        df = df.sort_values(by="score", ascending=False).head(10)
 
 
         message = f"📊 RAXIT DAILY TOP 10\n📅 {today}\n\n"
