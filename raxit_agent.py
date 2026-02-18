@@ -111,3 +111,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+      - name: Run daily Agent
+        run: python raxit_agent.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
