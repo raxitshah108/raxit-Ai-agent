@@ -20,7 +20,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install yfinance pandas requests
-        - name: Run Agent
+
+      - name: Run Agent
         run: python raxit_agent.py
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
