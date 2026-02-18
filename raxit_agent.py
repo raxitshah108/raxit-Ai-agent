@@ -12,7 +12,8 @@ import traceback
 # 🔐 ENTER YOUR DETAILS
 # =========================
 
-BOT_TOKEN = 8569764370:AAFG-744c3JyQauL2yzN2d8RrjT1PhOjK-A"= "480878572"
+BOT_TOKEN = 8569764370:AAFG-744c3JyQauL2yzN2d8RrjT1PhOjK-A")
+CHAT_ID = os.environ.get("480878572")
 
 # =========================
 # 📩 TELEGRAM FUNCTION
