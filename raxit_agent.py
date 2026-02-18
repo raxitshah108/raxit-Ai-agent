@@ -28,11 +28,21 @@ def send_telegram(message):
 # 📊 GET NIFTY 500 LIST
 # =========================
 
-def get_nifty500():
-    url = "https://archives.nseindia.com/content/indices/ind_nifty500list.csv"
-    df = pd.read_csv(url)
-    symbols = df['Symbol'].tolist()
-    return symbols
+def get_universe():
+    try:
+        mid = pd.read_csv(
+            "https://archives.nseindia.com/content/indices/ind_niftymidcap150list.csv"
+        )
+        small = pd.read_csv(
+            "https://archives.nseindia.com/content/indices/ind_niftysmallcap250list.csv"
+        )
+
+        symbols = mid["Symbol"].tolist() + small["Symbol"].tolist()
+
+        return symbols[:250]  # limit to avoid timeout
+    except:
+        return []
+
 
 # =========================
 # 📈 SCORE CALCULATION
@@ -72,7 +82,7 @@ def calculate_score(symbol):
 def main():
     try:
         today = datetime.datetime.now().strftime("%d-%b-%Y")
-        symbols = get_nifty500()
+        symbols = get_universe()
 
         results = []
 
